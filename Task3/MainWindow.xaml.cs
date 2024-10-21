@@ -50,6 +50,30 @@ namespace Task3
             GlobalEventHandler.BookReturned += OnBookReturn;
         }
 
+        public LocalDatabase LocalDatabase
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Window1 Window1
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public DialogWindow DialogWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void Check_Rented(object sender, RoutedEventArgs e)
         {
             Window1 rentedBooksWindow = new Window1(sqlManager);

@@ -15,6 +15,22 @@ namespace Task3
         public static event BookReturnedEventHandler BookReturned;
         public static event BookRentedEventHandler BookRented;
 
+        public Window1 Window1
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // Метод для вызова события
         public static void OnBookReturned()
         {

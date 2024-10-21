@@ -188,7 +188,7 @@
     <Compile Include="DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GlobalEventHandler.cs" />
+    <Compile Include="Modules\GlobalEventHandler.cs" />
     <Compile Include="RentedBooks.xaml.cs">
       <DependentUpon>RentedBooks.xaml</DependentUpon>
     </Compile>
@@ -204,9 +204,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Book.cs" />
-    <Compile Include="FBaseManager.cs" />
-    <Compile Include="LocalDatabase.cs" />
+    <Compile Include="Modules\Book.cs" />
+    <Compile Include="Modules\FBaseManager.cs" />
+    <Compile Include="Modules\LocalDatabase.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -234,6 +234,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

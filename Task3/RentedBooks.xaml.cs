@@ -30,6 +30,22 @@ namespace Task3
             GlobalEventHandler.BookRented += OnBookRented;
         }
 
+        public LocalDatabase LocalDatabase
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public DialogWindow DialogWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // Загружаем арендованные книги из локальной базы данных
         private void LoadRentedBooks()
         {

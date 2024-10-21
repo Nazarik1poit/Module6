@@ -19,6 +19,30 @@ namespace Task3
 
         public int Count { get; set; }
 
+        internal FBaseManager FBaseManager
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public BookList BookList
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public LocalDatabase LocalDatabase
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Book(string title, string author, int ID, bool isOnStock, int count)
         {
             this.Title = title;
@@ -40,7 +64,23 @@ namespace Task3
         public BookList(List<Book> Books)
         {
             books = new ObservableCollection<Book>(Books);
-        } 
+        }
+
+        internal FBaseManager FBaseManager
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public void Print()
         {
