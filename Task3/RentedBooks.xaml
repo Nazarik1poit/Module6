@@ -1,0 +1,16 @@
+﻿<Window x:Class="Task3.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Арендованные книги" Height="350" Width="525">
+    <Grid>
+        <DataGrid x:Name="RentedBooksGrid" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="Auto" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*" />
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="2*" />
+                <DataGridTextColumn Header="Count" Binding="{Binding Count}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Вернуть книгу" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Margin="0,0,10,10" Click="ReturnBook_Click"/>
+    </Grid>
+</Window>

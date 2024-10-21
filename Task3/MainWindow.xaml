@@ -1,0 +1,33 @@
+﻿<Window x:Class="Task3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task3"
+        mc:Ignorable="d"
+        Title="Библиотека" Height="450" Width="800">
+    <Grid>
+        <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Left" Width="240">
+            <TextBox x:Name="FilterTextBox" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,61,0,0" TextChanged="FilterTextBox_TextChanged"/>
+            <ComboBox x:Name="FilterMethodComboBox" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,10,0,0" SelectionChanged="FilterMethodComboBox_SelectionChanged">
+                <ComboBoxItem Content="Title" IsSelected="True"/>
+                <ComboBoxItem Content="Author"/>
+                <ComboBoxItem Content="ID"/>
+                <ComboBoxItem Content="IsOnStock"/>
+                <ComboBoxItem Content="Count"/>
+            </ComboBox>
+            <Button Content="Арендовать книгу" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="180" Click="Rent_Click"/>
+            <Button Content="Арендованные книги" Height="30" Width="180" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,170,0,0" Click="Check_Rented"/>
+        </Grid>
+
+        <DataGrid x:Name="BookGrid" SelectionChanged="BookGrid_SelectionChanged" IsReadOnly="True" SelectionMode="Single" CanUserSortColumns="True" AutoGenerateColumns="False" MinRowHeight="30" VerticalAlignment="Stretch"   HorizontalAlignment="Stretch" Margin="242,8,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" SortDirection="Ascending" Width="*" />
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="*" />
+                <DataGridTextColumn Header="Автор" Binding="{Binding Author}" Width="*" />
+                <DataGridTextColumn Header="На складе" Binding="{Binding IsOnStock}" Width="*" />
+                <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
