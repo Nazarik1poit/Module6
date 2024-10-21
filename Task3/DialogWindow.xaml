@@ -5,10 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task3"
         mc:Ignorable="d"
-        Title="DialogWindow" Height="200" Width="500">
-    <Grid>
-        <TextBlock Height="30" VerticalAlignment="Top" TextAlignment="Center" Margin="20"><Run Text="Введите количество книг"/></TextBlock>
-        <TextBox x:Name="InputBox" Height="25" VerticalAlignment="Top" Margin="60" Width="200"/>
+        Title="" Height="200" Width="500">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#696969" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <SolidColorBrush x:Key="DarkWoodColor" Color="#4B3D28" />
+        <SolidColorBrush x:Key="DarkGreenColor" Color="#2C3E50" />
+        <SolidColorBrush x:Key="CreamColor" Color="#F7F1E3" />
+        <SolidColorBrush x:Key="BeigeColor" Color="#D7B79D" />
+        <SolidColorBrush x:Key="GoldColor" Color="#DAA520" />
+        <SolidColorBrush x:Key="CopperColor" Color="#B87333" />
+        <SolidColorBrush x:Key="LightGrayColor" Color="#D3D3D3" />
+        <SolidColorBrush x:Key="DarkGrayColor" Color="#696969" />
+        <SolidColorBrush x:Key="LinkColor" Color="#2E86C1" />
+    </Window.Resources>
+    <Grid Background="#4B3D28">
+        <TextBlock Height="30" VerticalAlignment="Top" TextAlignment="Center" Margin="20" FontSize="25" Foreground="Wheat"><Run Text="Введите количество книг"/></TextBlock>
+        <TextBox x:Name="InputBox" Height="25" VerticalAlignment="Top" Margin="60" Width="200"
+        Background="#D7B79D"
+        Foreground="Black" FontSize="20">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
         <Button Height="25" VerticalAlignment="Bottom" Margin="40" Width="40" Content="OK" Click="OK_Click"/>
     </Grid>
 </Window>

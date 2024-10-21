@@ -31,7 +31,7 @@ namespace Task3
         private CollectionViewSource bookViewSource = new CollectionViewSource();
         public static BookList bookList = new BookList();
         List<Book> rentedBooks = new List<Book>();
-        private string selectedFilterMethod = "Title";
+        private string selectedFilterMethod = "Название";
         private int selectedBook_ID;
         LocalDatabase sqlManager = new LocalDatabase(); 
         public MainWindow()
@@ -125,19 +125,19 @@ namespace Task3
                     // Фильтруем в зависимости от выбранного метода
                     switch (selectedFilterMethod)
                     {
-                        case "Title":
+                        case "Название":
                             e.Accepted = book.Title.ToLower().Contains(FilterTextBox.Text.ToLower());
                             break;
-                        case "Author":
+                        case "Автор":
                             e.Accepted = book.Author.ToLower().Contains(FilterTextBox.Text.ToLower());
                             break;
                         case "ID":
                             e.Accepted = (book.ID).ToString().Contains(FilterTextBox.Text.ToLower());
                             break;
-                        case "Count":
+                        case "Количество":
                             e.Accepted = (book.Count).ToString().Contains(FilterTextBox.Text.ToLower());
                             break;
-                        case "IsOnStock":
+                        case "Наличие":
                             // Преобразуем булевое значение в строку "true" или "false"
                             string isOnStockString = book.IsOnStock ? "true" : "false";
 

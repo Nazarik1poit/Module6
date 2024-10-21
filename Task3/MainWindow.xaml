@@ -5,27 +5,111 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task3"
         mc:Ignorable="d"
-        Title="Библиотека" Height="450" Width="800">
-    <Grid>
-        <Grid Height="250" VerticalAlignment="Top" HorizontalAlignment="Left" Width="240">
-            <TextBox x:Name="FilterTextBox" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,61,0,0" TextChanged="FilterTextBox_TextChanged"/>
-            <ComboBox x:Name="FilterMethodComboBox" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,10,0,0" SelectionChanged="FilterMethodComboBox_SelectionChanged">
-                <ComboBoxItem Content="Title" IsSelected="True"/>
-                <ComboBoxItem Content="Author"/>
+        Title="Библиотека" Height="450" Width="800"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#D7B79D" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <SolidColorBrush x:Key="DarkWoodColor" Color="#4B3D28" />
+        <SolidColorBrush x:Key="DarkGreenColor" Color="#2C3E50" />
+        <SolidColorBrush x:Key="CreamColor" Color="#F7F1E3" />
+        <SolidColorBrush x:Key="BeigeColor" Color="#D7B79D" />
+        <SolidColorBrush x:Key="GoldColor" Color="#DAA520" />
+        <SolidColorBrush x:Key="CopperColor" Color="#B87333" />
+        <SolidColorBrush x:Key="LightGrayColor" Color="#D3D3D3" />
+        <SolidColorBrush x:Key="DarkGrayColor" Color="#696969" />
+        <SolidColorBrush x:Key="LinkColor" Color="#2E86C1" />
+
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="{StaticResource CreamColor}" />
+            <Setter Property="Foreground" Value="{StaticResource DarkGreenColor}" />
+            <Setter Property="BorderBrush" Value="{StaticResource DarkWoodColor}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="RowBackground" Value="{StaticResource BeigeColor}" />
+            <Setter Property="AlternatingRowBackground" Value="{StaticResource LightGrayColor}" />
+            <Setter Property="SelectionUnit" Value="FullRow" />
+            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="RowHeight" Value="30" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="{StaticResource DarkGreenColor}" />
+                        <Setter Property="Foreground" Value="{StaticResource CreamColor}" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Padding" Value="5" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource LightGrayColor}" />
+                    <Setter Property="Foreground" Value="{StaticResource DarkGreenColor}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#4B3D28">
+
+        <Grid Height="270" VerticalAlignment="Top" HorizontalAlignment="Left" 
+              Width="245" Background="#2C3E50">
+            <TextBox x:Name="FilterTextBox" Width="200" Height="30" HorizontalAlignment="Left"
+                     Background="#D7B79D"
+                     Foreground="Black" FontSize="20"
+                     VerticalAlignment="Top" Margin="23,61,0,0" TextChanged="FilterTextBox_TextChanged">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <ComboBox x:Name="FilterMethodComboBox" Width="200" Height="30" 
+          HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,10,0,0"
+          SelectionChanged="FilterMethodComboBox_SelectionChanged"
+                      FontSize="14">
+                <ComboBoxItem Content="Название" IsSelected="True"/>
+                <ComboBoxItem Content="Автор"/>
                 <ComboBoxItem Content="ID"/>
-                <ComboBoxItem Content="IsOnStock"/>
-                <ComboBoxItem Content="Count"/>
+                <ComboBoxItem Content="Наличие" />
+                <ComboBoxItem Content="Количество"/>
             </ComboBox>
-            <Button Content="Арендовать книгу" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="180" Click="Rent_Click"/>
-            <Button Content="Арендованные книги" Height="30" Width="180" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,170,0,0" Click="Check_Rented"/>
+            
+
+            <Button Content="Арендовать книгу" Height="30" HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" Width="180" Click="Rent_Click" Margin="20"/>
+            <Button Content="Арендованные книги" Height="30" Width="180" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                    Margin="0,170,0,0" Click="Check_Rented"/>
         </Grid>
 
-        <DataGrid x:Name="BookGrid" SelectionChanged="BookGrid_SelectionChanged" IsReadOnly="True" SelectionMode="Single" CanUserSortColumns="True" AutoGenerateColumns="False" MinRowHeight="30" VerticalAlignment="Stretch"   HorizontalAlignment="Stretch" Margin="242,8,0,0">
+        <DataGrid x:Name="BookGrid" SelectionChanged="BookGrid_SelectionChanged" IsReadOnly="True" SelectionMode="Single" 
+                  CanUserSortColumns="True" AutoGenerateColumns="False" 
+                  MinRowHeight="30" VerticalAlignment="Stretch"   HorizontalAlignment="Stretch" Margin="242,0,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" SortDirection="Ascending" Width="*" />
                 <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="*" />
                 <DataGridTextColumn Header="Автор" Binding="{Binding Author}" Width="*" />
-                <DataGridTextColumn Header="На складе" Binding="{Binding IsOnStock}" Width="*" />
+                <DataGridTextColumn Header="Наличие" Binding="{Binding IsOnStock}" Width="*" />
                 <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>

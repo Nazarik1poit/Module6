@@ -51,7 +51,7 @@ namespace Task3
                     if (dlg.DialogResult == true)
                     {
                         int quantity = dlg.Quantity;
-                        if (quantity >= selectedBook.Count)
+                        if (quantity == selectedBook.Count)
                         {
                             // Удаляем книгу из списка арендованных книг
                             rentedBooks.books.Remove(selectedBook);
@@ -62,7 +62,7 @@ namespace Task3
                             RentedBooksGrid.ItemsSource = rentedBooks.books;
                             GlobalEventHandler.OnBookReturned();
                         }
-                        else
+                        else if (quantity < selectedBook.Count)
                         {
                             Book returnedBook = new Book(selectedBook.Title, selectedBook.Author, selectedBook.ID, selectedBook.IsOnStock, quantity);
                             selectedBook.Count -= quantity;
@@ -70,6 +70,11 @@ namespace Task3
                             RentedBooksGrid.ItemsSource = null;
                             RentedBooksGrid.ItemsSource = rentedBooks.books;
                             GlobalEventHandler.OnBookReturned();
+                        }
+                        else
+                        {
+                            MessageBox.Show("У вас нет столько книг");
+                            return;
                         }
                     }
                 }
